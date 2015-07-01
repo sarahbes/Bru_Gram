@@ -1,0 +1,20 @@
+<%= form_for [current_user, @photo] do |f| %>
+  <p>
+    <%= f.label :public %><br>
+    <%= f.check_box :public %>
+  </p>
+ 
+  <p>
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </p>
+ 
+  <p>
+    <%= f.label :caption %><br>
+    <%= f.text_field :caption %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

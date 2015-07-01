@@ -1,3 +1,3 @@
 class Comment < ActiveRecord::Base
-  belongs_to :Photo
+  belongs_to :photo
 end

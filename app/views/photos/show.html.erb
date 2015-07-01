@@ -1,0 +1,15 @@
+<p>
+  <strong>Image:</strong>
+  <%= @photo.image %>
+</p>
+ 
+<p>
+  <strong>Caption:</strong>
+  <%= @photo.caption%>
+</p>
+ 
+<%= render @photo.comments %>
+
+
+<%= link_to 'Edit', edit_user_photo_path(current_user, @photo) %> |
+<%= link_to 'Back', photos_path %>

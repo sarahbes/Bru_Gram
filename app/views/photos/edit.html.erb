@@ -1,0 +1,10 @@
+<h2>Edit BruGram</h2>
+
+<%= render 'form' %>
+
+<h4>
+  <%= link_to 'Delete this Photo', user_photo_path(current_user, @photo),
+  method: :delete,
+  data: {confirm: 'Are you sure you want to delete this Photo?'} 
+   %>
+ </h4>

@@ -1,0 +1,5 @@
+<h2>Add a comment:</h2>
+<%= simple_form_for([@photo, @photo.comments.build]) do |f| %>
+    <%= f.label :body %>
+    <%= f.submit%>
+<% end %>
