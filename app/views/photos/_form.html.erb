@@ -1,17 +1,14 @@
-<%= form_for [current_user, @photo] do |f| %>
+<%= simple_form_for [current_user, @photo] do |f| %>
   <p>
-    <%= f.label :public %><br>
-    <%= f.check_box :public %>
+    <%= f.input :public %><br>
   </p>
  
   <p>
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.input :image %><br>
   </p>
  
   <p>
-    <%= f.label :caption %><br>
-    <%= f.text_field :caption %>
+    <%= f.input :caption %><br>
   </p>
 
   <p>

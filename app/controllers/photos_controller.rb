@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-
+	before_action :authenticate_user!, except: [:show_all]
 	def index
 		if current_user.id == params[:user_id]
 			@photos = current_user.photos
@@ -10,11 +10,15 @@ class PhotosController < ApplicationController
 
 	def show
 		@photo = Photo.find params[:id]
-		@comment = @photo.comments.build
+		@new_comment = Comment.new(:photo => @photo)
 	end
 
 	def new
 		@photo = current_user.photos.build
+	end
+
+	def edit
+		@photo = current_user.photos.find(params[:id])
 	end
 
 	def create

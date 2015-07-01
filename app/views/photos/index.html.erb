@@ -1,8 +1,7 @@
 <% @photos.each do |photo| %>
-	<%= photo.caption %>
-	<% link_to 'show', user_photo_path(current_user, photo) %>
-	<% img src = <%=photo.image%> %>
+	<p><%= photo.caption %></p>
+	<p><%= link_to 'show', user_photo_path(current_user, photo) %></p>
+	<%= image_tag photo.image %>
 <% end %>
 
-<%= link_to 'new', new_user_photo_path(current_user, photo) %>
-
+<p><%= link_to 'new', new_user_photo_path(current_user, photo) %></p>

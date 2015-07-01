@@ -1,33 +1,33 @@
 class CommentsController < ApplicationController
-  def create
-    @photo = Photo.find(params[:photo_id])
-    @comment = @photo.comments.create(comment_params)
-    @comment.user_id = current_user.id
-    @comment.save
-    redirect_to photo_path(@photo)
-  end
+	def create
+		@photo = Photo.find params[:photo_id]
+		@comment = @photo.comments.new(comment_params)
+		@comment.user = current_user
+		@comment.save
+		redirect_to user_photo_path(current_user, @photo)
+	end
  
- def destroy
+	def destroy
 		@photo = Photo.find params[:photo_id]
 		@comment = @photo.comments.find params[:id]
 		@comment.destroy
-		redirect_to photo_path(@photo)
+		redirect_to user_photo_path(current_user, @photo)
 	end
 
-def edit
+	def edit
 		@photo = Photo.find params[:photo_id]
-		@comment = Comment.find params[:id]		
-end
+		@new_comment = @photo.comments.find params[:id]		
+	end
 
-def update
+	def update
 		@photo = Photo.find params[:photo_id]
 		@comment = @photo.comments.find params[:id]
 		if @comment.update(comment_params)
-			redirect_to photo_path(@photo)
+			redirect_to user_photo_path(current_user, @photo)
 		else
 			render 'edit'
 		end
-end
+	end
 
   private
     def comment_params
