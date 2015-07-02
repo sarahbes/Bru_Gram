@@ -13,5 +13,6 @@
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
+<%= link_to 'View your photos', user_photos_path(current_user) %> |
 <%= link_to 'Edit', edit_user_photo_path(current_user, @photo) %> |
-<%= link_to 'Back', photos_path %>
+<%= link_to 'Back', photos_path %> 

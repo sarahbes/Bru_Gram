@@ -1,7 +1,15 @@
-<% @photos.each do |photo| %>
-	<p><%= photo.caption %></p>
-	<p><%= link_to 'show', user_photo_path(current_user, photo) %></p>
-	<%= image_tag photo.image %>
-<% end %>
+<div class = "container">
 
-<p><%= link_to 'new', new_user_photo_path(current_user) %></p>
+	<h1>My photos </h1>
+	
+	<div class= "row">
+	<% @photos.each do |photo| %>
+		<div class= "col-md-4">
+			<p><%= photo.caption %></p>
+			<p><%= link_to 'show', user_photo_path(current_user, photo) %></p>
+			<%= image_tag photo.image %>
+		</div>
+<% end %>
+</div>
+
+<p><%= link_to 'New Photo', new_user_photo_path(current_user) %> | <%= link_to 'Back', photos_path %></p>
