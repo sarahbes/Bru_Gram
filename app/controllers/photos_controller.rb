@@ -1,11 +1,7 @@
 class PhotosController < ApplicationController
 	before_action :authenticate_user!, except: [:show_all]
 	def index
-		if current_user.id == params[:user_id]
-			@photos = current_user.photos
-		else
-			redirect root_path
-		end
+		@photos = current_user.photos
 	end
 
 	def show

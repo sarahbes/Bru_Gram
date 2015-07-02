@@ -4,3 +4,7 @@
 	<%= image_tag photo.image %>
 <% end %>
 
+<% if current_user %>
+	<p><%= link_to 'View your photos', user_photos_path(current_user) %> | <%= link_to 'New photo', new_user_photo_path(current_user) %></p>
+<% end %>
+
